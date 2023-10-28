@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>{{t 'userSignup'}}</h2>
+
+    {{#if error}}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {{/if}}
+
+
+    <form action="/user/signup" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label">{{t 'userEmail' }}</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">{{t 'userPassword' }}</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        {{#if passwordError}}
+        <div class="fw-medium text-danger">
+            {{t 'passRequire'}}
+            <ul>
+                <li class="text-danger">{{t 'lowerLetter'}}</li>
+                <li class="text-danger">{{t 'upperLetter'}}</li>
+                <li class="text-danger">{{t 'number'}}</li>
+                <li class="text-danger">{{t 'special'}}</li>
+            </ul>
+        </div>
+        {{/if}}
+        <button class="btn btn-primary">{{t 'userSignup'}}</button>
+    </form>
+</div>
